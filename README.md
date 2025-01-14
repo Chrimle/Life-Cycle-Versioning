@@ -1,5 +1,7 @@
 # Life Cycle Versioning  - `0.0.1-alpha`
-An Alternative to Semantic Versioning
+An Alternative to [Semantic Versioning](https://semver.org/).
+
+The origin of this concept, can be found here: [Life Cycle Versioning on Medium](https://medium.com/p/da8643fedc29).
 
 # Definition
 > [!IMPORTANT]
