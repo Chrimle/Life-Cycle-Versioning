@@ -1,4 +1,5 @@
 # Examples of the `RELEASE` label in Java.
+> The addition of a new feature or functionality.
 
 ## Rules
 - #1: The change **MUST NOT** remove, modify or replace an _existing_ feature.
