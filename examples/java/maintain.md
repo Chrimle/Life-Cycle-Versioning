@@ -36,18 +36,58 @@ Refer to `DECOM` definition.
 
 ```diff
 public interface API {
-  default float multiply(float dividend, float divisor) throws IllegalArgumentException {
+  default float divide(float dividend, float divisor) throws IllegalArgumentException {
 +   if (divisor == 0) throw new IllegalArgumentException("Cannot divide by zero!");
     return dividend / divisor;
   }
 }
 ```
 
-... continue...
+# Rule #5
+> The change **MAY** modify an existing _default_ or _opt-in_ feature.
+
+Basically, it does not matter whether the feature is default or opt-in.
+
+# Rule #6
+> The change **MAY** modify an existing feature internally (_e.g. refactoring_).
+
+But must not change any behavior.
+
+### Example
+#### OK #1
+```diff
+public interface API {
+  default float divide(float dividend, float divisor) throws IllegalArgumentException {
+-   if (divisor == 0) throw new IllegalArgumentException("Cannot divide by zero!");
++   if (divisor == 0) {
++      throw new IllegalArgumentException("Cannot divide by zero!");
++    }
+    return dividend / divisor;
+  }
+}
+```
 
 
+# Rule #7
+> The change **MAY** modify an existing feature _non-functionally_.
 
-
+### Example
+#### OK #1
+> Deprecation
+```diff
+public interface API {
++ @Deprecated
+  float divide(float dividend, float divisor);
+}
+```
+#### OK #2
+> Documentation change
+```diff
+public interface API {
++ /** Divides dividend by divisor and returns the result. */
+  float divide(float dividend, float divisor);
+}
+```
 
 
 
